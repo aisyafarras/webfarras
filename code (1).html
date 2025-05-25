@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login Page</title>
+  <style>
+    /* Reset and basics */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #f5f0e6, #144fa7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #3a3a3a;
+    }
+
+    .login-container {
+      background: #f5f0e6; /* beige */
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(20, 79, 167, 0.3);
+      width: 360px;
+      padding: 2rem 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .login-container:hover {
+      box-shadow: 0 12px 30px rgba(20, 79, 167, 0.5);
+    }
+
+    .login-title {
+      color: #144fa7;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1px;
+      user-select: none;
+    }
+
+    form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      user-select: none;
+      color: #144fa7;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      background: #fff9e6;
+      border: 2px solid #144fa7;
+      border-radius: 8px;
+      padding: 0.7rem 1rem;
+      font-size: 1rem;
+      margin-bottom: 1.3rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      color: #333;
+      outline: none;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      border-color: #0f3a82;
+      box-shadow: 0 0 8px #144fa7aa;
+    }
+
+    button {
+      background-color: #144fa7;
+      color: white;
+      border: none;
+      padding: 0.85rem 0;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+      box-shadow: 0 4px 10px rgba(20, 79, 167, 0.4);
+    }
+
+    button:hover {
+      background-color: #0f3a82;
+      box-shadow: 0 6px 14px rgba(15, 58, 130, 0.6);
+    }
+
+    .footer-text {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #0f3a82;
+      text-align: center;
+      user-select: none;
+    }
+
+    @media (max-width: 400px) {
+      .login-container {
+        width: 90vw;
+        padding: 2rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="login-container" role="main" aria-label="Login Form">
+    <h1 class="login-title">Login</h1>
+    <form id="loginForm" autocomplete="off" novalidate>
+      <label for="username">Username or Email</label>
+      <input type="text" id="username" name="username" placeholder="Enter username or email" required autocomplete="username" />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Enter password" required autocomplete="current-password" />
+
+      <button type="submit" aria-label="Submit login form">Log In</button>
+    </form>
+    <p class="footer-text">© 2023 Z_ROSE</p>
+  </main>
+
+  <script>
+    // Basic client-side form validation and UX
+    const form = document.getElementById('loginForm');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const username = form.username.value.trim();
+      const password = form.password.value.trim();
+
+      if (!username) {
+        alert('Please enter your username or email.');
+        form.username.focus();
+        return;
+      }
+
+      if (!password) {
+        alert('Please enter your password.');
+        form.password.focus();
+        return;
+      }
+
+      // Simulate login success - in real scenario, you'd do API call here
+      alert('Login successful!\n\nUsername/Email: ' + username);
+      // Redirect to the main page after successful login
+      window.location.href = "index.html";
+      });;
+  
+  </script>
+</body>
+</html>
+
